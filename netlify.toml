@@ -1,0 +1,21 @@
+# Netlify config for the Arvind Yadav portfolio. Static site, no build step.
+[build]
+  publish = "."
+
+# Long cache for media and posters; they change only when files are replaced.
+[[headers]]
+  for = "/assets/video/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+    Accept-Ranges = "bytes"
+
+[[headers]]
+  for = "/assets/poster/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
